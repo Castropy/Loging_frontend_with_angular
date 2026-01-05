@@ -15,6 +15,7 @@
   padding: 10px;
   margin: 8px 0;
   box-sizing: border-box;
+
 }
 
 .buttons {
@@ -28,4 +29,5 @@
   margin: 0 5px;
   padding: 10px;
   cursor: pointer;
+  background-color: rgb(151, 196, 238);
 }
