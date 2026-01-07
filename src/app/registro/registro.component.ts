@@ -18,7 +18,7 @@ export class RegistroComponent {
     private http: HttpClient,
     private router: Router
   ) {
-    // Inicialización dentro del constructor
+    // Inicializamos el formulario reactivo
     this.form = this.fb.group({
       username: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -31,11 +31,11 @@ export class RegistroComponent {
       this.http.post('http://localhost:8000/api/auth/register/', this.form.value)
         .subscribe({
           next: () => {
-            alert('Usuario registrado con éxito');
+            alert('Usuario registrado correctamente');
             this.router.navigate(['/']); // redirige al login
           },
-          error: (err) => {
-            alert(err.error?.error || 'Error en el registro');
+          error: () => {
+            alert('Error al registrar usuario');
           }
         });
     }
