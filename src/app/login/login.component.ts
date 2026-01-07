@@ -27,7 +27,7 @@ export class LoginComponent {
 
   ingresar() {
     if (this.form.valid) {
-      this.http.post('http://localhost:8000/authapp/login/', this.form.value)
+      this.http.post('http://localhost:8000/api/auth/login/', this.form.value)
         .subscribe({
           next: (res: any) => {
             // Guardar tokens JWT
