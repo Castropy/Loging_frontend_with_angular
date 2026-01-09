@@ -1,33 +1,76 @@
-.registro-container{
-    width: 300px;
-    margin: 50px auto;
-    text-align: center;
-    font-family: Arial, sans-serif;
-    color: rgb(48, 48, 148);
+.registro-container {
+  width: 320px; /* igual que login */
+  margin: 60px auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  background-color: #f9f9f9;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  color: #303094;
 }
 
-.registro-container h2{
-    margin-bottom: 20px;
+.registro-container h2 {
+  margin-bottom: 20px;
+  font-weight: bold;
 }
 
-.registro-container input {
-  width: 100%;
-  padding: 10px;
-  margin: 8px 0;
-  box-sizing: border-box;
-
+/* Inputs con íconos */
+.input-group {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 0 10px;
+  margin: 10px 0;
+  background-color: #fff;
 }
 
+.input-group i {
+  color: #303094;
+  margin-right: 8px;
+}
+
+.input-group input {
+  flex: 1;
+  border: none;
+  padding: 12px;
+  outline: none;
+  font-size: 14px;
+}
+
+/* Botones */
 .buttons {
   display: flex;
-  justify-content: space-between; 
-  margin-top: 15px;
+  justify-content: space-between;
+  margin-top: 20px;
 }
 
 .buttons button {
   flex: 1;
   margin: 0 5px;
-  padding: 10px;
+  padding: 12px;
   cursor: pointer;
-  background-color: rgb(151, 196, 238);
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.buttons button[type="submit"] {
+  background-color: #303094;
+  color: white;
+}
+
+.buttons button[type="submit"]:hover {
+  background-color: #202070;
+}
+
+.buttons button[type="button"] {
+  background-color: #97c4ee;
+  color: #303094;
+}
+
+.buttons button[type="button"]:hover {
+  background-color: #7ab0e0;
 }
