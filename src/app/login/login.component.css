@@ -68,6 +68,8 @@
 /* --- estilos originales --- */
 .login-container {
   /* ... */
+  background-color: #e6f0fa;
+  border: 1px solid #d0d7e2;
 }
 
 /* --- nuevos estilos para los inputs con íconos --- */
@@ -93,3 +95,4 @@
   outline: none;
   font-size: 14px;
 }
+
