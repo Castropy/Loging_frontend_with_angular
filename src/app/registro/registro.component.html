@@ -2,15 +2,37 @@
   <h2>Registro</h2>
   
   <form [formGroup]="form" (ngSubmit)="registrar()">
-    <div>
-      <input type="text" placeholder="Nombre de usuario" formControlName="username" />
+    <!-- Campo Usuario con ícono -->
+    <div class="input-group">
+      <i class="fas fa-user"></i>
+      <input 
+        type="text" 
+        placeholder="Nombre de usuario" 
+        formControlName="username" 
+      />
     </div>
-    <div>
-      <input type="email" placeholder="Correo electrónico" formControlName="email" />
+
+    <!-- Campo Correo con ícono -->
+    <div class="input-group">
+      <i class="fas fa-envelope"></i>
+      <input 
+        type="email" 
+        placeholder="Correo electrónico" 
+        formControlName="email" 
+      />
     </div>
-    <div>
-      <input type="password" placeholder="Contraseña" formControlName="password" />
+
+    <!-- Campo Contraseña con ícono -->
+    <div class="input-group">
+      <i class="fas fa-lock"></i>
+      <input 
+        type="password" 
+        placeholder="Contraseña" 
+        formControlName="password" 
+      />
     </div>
+
+    <!-- Botones -->
     <div class="buttons">
       <button type="submit">Registrar</button>
       <button type="button" [routerLink]="['/']">Volver al login</button>
