@@ -1,11 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-homepage',
+  standalone: true,
   imports: [],
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.css',
 })
-export class Homepage {
+export class Homepage implements OnInit {
+  // Controla qué vista se muestra
+  showWelcome: boolean = true;
 
+  ngOnInit(): void {
+    // Después de 2000ms (2 segundos), cambiamos el estado
+    setTimeout(() => {
+      this.showWelcome = false;
+    }, 2000);
+  }
 }
