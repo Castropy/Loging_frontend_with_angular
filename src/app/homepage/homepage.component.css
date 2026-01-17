@@ -1,3 +1,49 @@
-.home-page{
-    top: auto;
+/* Contenedor principal para centrar todo */
+.home-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: #ffffff;
+  margin: 0;
+  overflow: hidden;
+}
+
+/* Animación del texto Welcome */
+.welcome-text {
+  font-size: 3rem;
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: bold;
+  color: #3b82f6; /* Un azul moderno */
+  animation: welcomeAnim 2s ease-in-out forwards;
+}
+
+@keyframes welcomeAnim {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  20% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  80% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.2);
+  }
+}
+
+/* Animación para que el contenido nuevo no aparezca de golpe */
+.fade-in {
+  animation: fadeInContent 0.8s ease-in forwards;
+}
+
+@keyframes fadeInContent {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
