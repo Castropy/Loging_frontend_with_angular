@@ -1,26 +1,22 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core'; // 1. Importar ChangeDetectorRef
-import { CommonModule } from '@angular/common';
+import { Component, OnInit, signal } from '@angular/core';
 
 @Component({
   selector: 'app-homepage',
   standalone: true,
-  imports: [CommonModule],
+  imports: [], // Con @if no necesitas CommonModule
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.css',
 })
 export class Homepage implements OnInit {
-  showWelcome: boolean = true;
-
-  // 2. Inyectarlo en el constructor
-  constructor(private cdr: ChangeDetectorRef) {}
+  
+  // 1. Definimos una Signal con el valor inicial 'true'
+  showWelcome = signal(true);
 
   ngOnInit(): void {
     setTimeout(() => {
-      this.showWelcome = false;
-      console.log('Cambiando a contenido principal...');
-      
-      // 3. Notificar manualmente a Angular que hubo un cambio
-      this.cdr.detectChanges(); 
+      // 2. Cambiamos el valor de la Signal usando .set()
+      this.showWelcome.set(false);
+      console.log('Cambiando a contenido principal con Signals...');
     }, 2000);
   }
 }

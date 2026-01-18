@@ -1,6 +1,5 @@
 <div class="viewport">
-  @if (showWelcome) {
-    <div class="welcome-overlay">
+  @if (showWelcome()) { <div class="welcome-overlay">
       <h1 class="welcome-text">Welcome</h1>
     </div>
   } @else {
