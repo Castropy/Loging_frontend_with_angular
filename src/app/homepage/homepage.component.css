@@ -1,49 +1,43 @@
-/* Contenedor principal para centrar todo */
-.home-page {
+/* Contenedor base que no se anima para no ocultar lo que viene después */
+.viewport {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   width: 100vw;
-  background-color: #ffffff;
+  background-color: #f0f2f5; /* Un gris muy claro para notar el cambio */
   margin: 0;
-  overflow: hidden;
 }
 
-/* Animación del texto Welcome */
+/* Capa de bienvenida */
+.welcome-overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .welcome-text {
-  font-size: 3rem;
-  font-family: 'Segoe UI', sans-serif;
+  font-size: 4rem;
   font-weight: bold;
-  color: #3b82f6; /* Un azul moderno */
-  animation: welcomeAnim 2s ease-in-out forwards;
+  color: #3b82f6;
+  /* Animación de 2s: aparece, se queda y desaparece */
+  animation: welcomeFade 2s ease-in-out forwards;
 }
 
-@keyframes welcomeAnim {
-  0% {
-    opacity: 0;
-    transform: scale(0.5);
-  }
-  20% {
-    opacity: 1;
-    transform: scale(1.1);
-  }
-  80% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1.2);
-  }
+@keyframes welcomeFade {
+  0% { opacity: 0; transform: translateY(20px); }
+  20% { opacity: 1; transform: translateY(0); }
+  80% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-20px); }
 }
 
-/* Animación para que el contenido nuevo no aparezca de golpe */
-.fade-in {
-  animation: fadeInContent 0.8s ease-in forwards;
+/* El contenido principal aparece con su propia animación suave */
+.main-content {
+  animation: fadeInFinal 0.5s ease-in forwards;
+  text-align: center;
 }
 
-@keyframes fadeInContent {
+@keyframes fadeInFinal {
   from { opacity: 0; }
   to { opacity: 1; }
 }

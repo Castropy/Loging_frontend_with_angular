@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-homepage',
   standalone: true,
@@ -15,6 +15,7 @@ export class Homepage implements OnInit {
     // Después de 2000ms (2 segundos), cambiamos el estado
     setTimeout(() => {
       this.showWelcome = false;
+      console.log('Cambiando a contenido principal...');
     }, 2000);
   }
 }
