@@ -11,5 +11,5 @@
   "include": [
     "src/**/*.d.ts",
     "src/**/*.spec.ts"
-, "src/app/registro/registro.spec.component.ts"  ]
+, "src/app/components/registro/registro.spec.component.ts"  ]
 }
