@@ -27,6 +27,6 @@ export class Homepage implements OnInit {
   cerrarSesion() {
     localStorage.removeItem('access_token');
     localStorage.removeItem('refresh_token');
-    this.router.navigate(['/login']);
+    this.router.navigate(['/']);
   }
 }
