@@ -16,7 +16,6 @@ export class Homepage implements OnInit {
     setTimeout(() => {
       // 2. Cambiamos el valor de la Signal usando .set()
       this.showWelcome.set(false);
-      console.log('Cambiando a contenido principal con Signals...');
     }, 2000);
   }
 }
