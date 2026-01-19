@@ -1,20 +1,36 @@
-import { HttpInterceptorFn } from '@angular/common/http';
+import { HttpInterceptorFn, HttpErrorResponse } from '@angular/common/http';
+import { inject } from '@angular/core';
+import { Router } from '@angular/router';
+import { catchError, throwError } from 'rxjs';
 
 export const authInterceptor: HttpInterceptorFn = (req, next) => {
-  // 1. Obtenemos el token del localStorage
+  const router = inject(Router);
   const token = localStorage.getItem('access_token');
 
-  // 2. Si el token existe, clonamos la petición y le añadimos el header
+  let clonedRequest = req;
+
+  // 1. Inyectar el token si existe
   if (token) {
-    const cloned = req.clone({
+    clonedRequest = req.clone({
       setHeaders: {
         Authorization: `Bearer ${token}`
       }
     });
-    // Enviamos la petición clonada con el token
-    return next(cloned);
   }
 
-  // 3. Si no hay token, la petición sigue su curso original
-  return next(req);
+  // 2. Manejar la respuesta y capturar errores 401 (Expirado/Inválido)
+  return next(clonedRequest).pipe(
+    catchError((error: HttpErrorResponse) => {
+      if (error.status === 401) {
+        console.warn('Token expirado o inválido. Redirigiendo al login...');
+        
+        // Limpiamos todo para que el Guard no nos deje entrar de nuevo
+        localStorage.removeItem('access_token');
+        localStorage.removeItem('refresh_token');
+        
+        router.navigate(['/login']);
+      }
+      return throwError(() => error);
+    })
+  );
 };
